@@ -21,15 +21,9 @@ export function Home() {
   return (
     <>
       <div className="col-6">
-        <h1>Welcome to React charts</h1>
-        <p>
-          fyi: a great resource for adding redux to a react{" "}
-          <a href="https://www.freecodecamp.org/news/how-to-use-redux-in-your-react-typescript-app/">
-            app
-          </a>
-        </p>
         <main>
-          <h1>My Persons</h1>
+          <h1>React charts showcase</h1>
+          <p>Use this form to add additional data to show in the charts in the menu above</p>
           <AddPerson savePerson={savePerson} />
           {persons.map((person: IPerson) => (
             <Person

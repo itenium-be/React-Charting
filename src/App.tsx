@@ -34,7 +34,22 @@ function Header({setPage}: HeaderProps) {
         <div className="collapse navbar-collapse">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <a className="nav-link active" onClick={() => setPage('sample')}>Sample</a>
+              <a className="nav-link active" onClick={() => setPage('recharts')}>Recharts</a>
+            </li>
+            <li className="nav-item">
+              <a className="nav-link active" onClick={() => setPage('visx')}>Visx</a>
+            </li>
+            <li className="nav-item">
+              <a className="nav-link active" onClick={() => setPage('nivo')}>Nivo</a>
+            </li>
+            <li className="nav-item">
+              <a className="nav-link active" onClick={() => setPage('victory')}>Victory</a>
+            </li>
+            <li className="nav-item">
+              <a className="nav-link active" onClick={() => setPage('reactvis')}>React-Vis</a>
+            </li>
+            <li className="nav-item">
+              <a className="nav-link active" onClick={() => setPage('reactchartjs2')}>React-ChartJS-2</a>
             </li>
           </ul>
         </div>

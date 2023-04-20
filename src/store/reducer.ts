@@ -12,6 +12,26 @@ const initialState: PersonState = {
       name: "Tom",
       age: 13,
     },
+    {
+      id: 3,
+      name: "Bruno",
+      age: 56,
+    },
+    {
+      id: 4,
+      name: "Kyoe",
+      age: 33,
+    },
+    {
+      id: 5,
+      name: "Borat",
+      age: 333,
+    },
+    {
+      id: 6,
+      name: "Sasha",
+      age: 68,
+    },
   ],
 }
 
@@ -22,7 +42,7 @@ const reducer = (
     switch (action.type) {
         case actionTypes.ADD_PERSON:
           const newPerson: IPerson = {
-            id: Math.random(), // not really unique
+            id: Math.floor(Math.random() * 100), // not really unique
             name: action.person.name,
             age: action.person.age,
           }

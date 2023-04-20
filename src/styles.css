@@ -7,6 +7,10 @@ main {
   main > h1 {
     text-align: center;
   }
+
+  main > p {
+    text-align: center;
+  }
   
   .Add-person {
     margin: 2rem auto;
