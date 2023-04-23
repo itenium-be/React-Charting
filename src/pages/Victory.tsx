@@ -4,9 +4,8 @@ import { VictoryChart, VictoryContainer, VictoryLine } from "victory";
 export function Victory() {
   const persons: IPerson[] = useSelector(
     (state: PersonState) => state.persons,
-    shallowEqual // checks that two different variables reference the same object
+    shallowEqual
   );
-  console.log(persons);
   const data: any[] = persons.map((person) => {
     return { x: person.name, y: person.age };
   });

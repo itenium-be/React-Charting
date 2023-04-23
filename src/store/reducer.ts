@@ -32,6 +32,11 @@ const initialState: PersonState = {
       name: "Sasha",
       age: 68,
     },
+    {
+      id: 7,
+      name: "Onur",
+      age: 27
+    }
   ],
 }
 

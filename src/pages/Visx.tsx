@@ -1,12 +1,11 @@
 import { Axis, Grid, LineSeries, Tooltip, XYChart } from "@visx/xychart";
-import { shallowEqual, useDispatch, useSelector } from "react-redux";
+import { shallowEqual, useSelector } from "react-redux";
 
 export function Visx() {
   const persons: IPerson[] = useSelector(
     (state: PersonState) => state.persons,
-    shallowEqual // checks that two different variables reference the same object
+    shallowEqual
   );
-  console.log(persons);
 
   const accessors = {
     xAccessor: (d ?: IPerson) => d && d.name,

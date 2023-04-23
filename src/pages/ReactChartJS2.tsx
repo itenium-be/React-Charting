@@ -37,12 +37,10 @@ export const options = {
 export function ReactChartJS2() {
   const persons: IPerson[] = useSelector(
     (state: PersonState) => state.persons,
-    shallowEqual // checks that two different variables reference the same object
+    shallowEqual
   );
-  console.log(persons);
   const labels: string[] = persons.map((person) => person.name);
   const ages: number[] = persons.map((person) => person.age);
-  console.log(labels);
   const data = {
     labels,
     datasets: [

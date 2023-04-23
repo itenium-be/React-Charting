@@ -1,12 +1,11 @@
 import { shallowEqual, useSelector } from "react-redux";
-import { CartesianGrid, Legend, Line, LineChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts";
+import { CartesianGrid, Legend, Line, LineChart, Tooltip, XAxis, YAxis } from "recharts";
 
 export function Recharts() {
   const persons: IPerson[] = useSelector(
     (state: PersonState) => state.persons,
     shallowEqual // checks that two different variables reference the same object
   );
-  console.log(persons);
 
   return (
     <>
@@ -19,7 +18,7 @@ export function Recharts() {
             left: 20,
             bottom: 5,
           }}> 
-        <CartesianGrid strokeDasharray="3 3" />
+          
         <XAxis dataKey="name" />
         <YAxis />
         <Tooltip />
