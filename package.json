@@ -1,23 +1,18 @@
 {
-  "name": "react-charts",
+  "name": "react-charting",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
   "dependencies": {
     "@nivo/core": "^0.80.0",
     "@nivo/line": "^0.80.0",
     "@react-spring/web": "^9.7.2",
-    "@testing-library/jest-dom": "^5.16.5",
-    "@testing-library/react": "^13.4.0",
-    "@testing-library/user-event": "^13.5.0",
-    "@types/faker": "^6.6.9",
-    "@types/jest": "^27.5.2",
-    "@types/node": "^16.18.23",
-    "@types/react": "^18.0.37",
-    "@types/react-dom": "^18.0.11",
-    "@visx/xychart": "^3.1.2",
-    "bootstrap": "^5.2.3",
     "chart.js": "^4.2.1",
-    "faker": "^6.6.6",
     "react": "^18.2.0",
     "react-chartjs-2": "^5.2.0",
     "react-dom": "^18.2.0",
@@ -27,15 +22,23 @@
     "recharts": "^2.5.0",
     "redux": "^4.2.1",
     "redux-thunk": "^2.4.2",
-    "typescript": "^4.9.5",
     "victory": "^36.6.8",
     "web-vitals": "^2.1.4"
   },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+  "devDependencies": {
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^13.5.0",
+    "@types/react-redux": "^7.1.25",
+    "@types/react-vis": "^1.11.11",
+    "@types/redux": "^3.6.0",
+    "@types/redux-thunk": "^2.1.0",
+    "@types/jest": "^27.5.2",
+    "@types/node": "^16.18.23",
+    "@types/react": "^18.0.37",
+    "@types/react-dom": "^18.0.11",
+    "@visx/xychart": "^3.1.2",
+    "typescript": "^4.9.5"
   },
   "eslintConfig": {
     "extends": [
@@ -54,11 +57,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "@types/react-redux": "^7.1.25",
-    "@types/react-vis": "^1.11.11",
-    "@types/redux": "^3.6.0",
-    "@types/redux-thunk": "^2.1.0"
   }
 }
