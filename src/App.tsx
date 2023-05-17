@@ -27,29 +27,29 @@ function Header({setPage}: HeaderProps) {
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <div className="container-fluid">
-        <a className="navbar-brand" onClick={() => setPage('home')}>
+        <button className="btn btn-link navbar-brand" onClick={() => setPage('home')}>
           <img src="/favicon.png" style={{marginRight: 18, width: 24}} alt="itenium logo" />
-          React charts
-        </a>
+          React Charting
+        </button>
         <div className="collapse navbar-collapse">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <a className="nav-link active" onClick={() => setPage('recharts')}>Recharts</a>
+              <button className="btn btn-link nav-link active" onClick={() => setPage('recharts')}>Recharts</button>
             </li>
             <li className="nav-item">
-              <a className="nav-link active" onClick={() => setPage('visx')}>Visx</a>
+              <button className="btn btn-link nav-link active" onClick={() => setPage('visx')}>Visx</button>
             </li>
             <li className="nav-item">
-              <a className="nav-link active" onClick={() => setPage('nivo')}>Nivo</a>
+              <button className="btn btn-link nav-link active" onClick={() => setPage('nivo')}>Nivo</button>
             </li>
             <li className="nav-item">
-              <a className="nav-link active" onClick={() => setPage('victory')}>Victory</a>
+              <button className="btn btn-link nav-link active" onClick={() => setPage('victory')}>Victory</button>
             </li>
             <li className="nav-item">
-              <a className="nav-link active" onClick={() => setPage('reactvis')}>React-Vis</a>
+              <button className="btn btn-link nav-link active" onClick={() => setPage('reactvis')}>React-Vis</button>
             </li>
             <li className="nav-item">
-              <a className="nav-link active" onClick={() => setPage('reactchartjs2')}>React-ChartJS-2</a>
+              <button className="btn btn-link nav-link active" onClick={() => setPage('reactchartjs2')}>React-ChartJS-2</button>
             </li>
           </ul>
         </div>
