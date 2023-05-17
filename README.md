@@ -1,5 +1,7 @@
 # React-Charting
 
+[Github Pages](http://itenium.be/React-Charting/)
+
 [itenium blog post](https://itenium.be/blog/javascript/what-chart-library-to-use-in-react/)
 
 Sample project showcasing popular react charting libraries.
