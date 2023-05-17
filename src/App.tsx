@@ -28,7 +28,7 @@ function Header({setPage}: HeaderProps) {
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <div className="container-fluid">
         <a href="https://itenium.be">
-          <img src="/favicon.png" style={{marginRight: 18, width: 24}} alt="itenium logo" />
+          <img src="favicon.png" style={{marginRight: 18, width: 24}} alt="itenium logo" />
         </a>
         <button className="btn btn-link navbar-brand" onClick={() => setPage('home')}>
           React Charting
