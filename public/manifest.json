@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "React Charting",
+  "name": "Demo app with several React Charting frameworks",
   "icons": [
   ],
   "start_url": ".",
