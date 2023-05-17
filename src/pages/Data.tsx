@@ -5,7 +5,7 @@ import { addPerson, removePerson } from "../store/actionCreators";
 import { AddPerson } from "../components/AddPerson";
 import { Person } from "../components/Person";
 
-export function Home() {
+export function Data() {
   const persons: readonly IPerson[] = useSelector(
     (state: PersonState) => state.persons,
     shallowEqual // checks that two different variables reference the same object
@@ -20,11 +20,16 @@ export function Home() {
 
   return (
     <>
+      <h1>React Charting Showcase</h1>
       <div className="col-6">
         <main>
-          <h1>React charts showcase</h1>
-          <p>Use this form to add additional data to show in the charts in the menu above</p>
+          <h2>Add persons to the dataset</h2>
           <AddPerson savePerson={savePerson} />
+        </main>
+      </div>
+      <div className="col-6">
+        <main>
+          <h2>Current dataset</h2>
           {persons.map((person: IPerson) => (
             <Person
               key={person.id}

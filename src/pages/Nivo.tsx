@@ -1,5 +1,7 @@
 import { Line } from "@nivo/line";
 import { shallowEqual, useSelector } from "react-redux";
+import { LibraryInfo } from "../components/LibraryInfo";
+import { LibraryInfos } from "../store/library-info";
 
 export function Nivo() {
   const persons: IPerson[] = useSelector(
@@ -12,6 +14,7 @@ export function Nivo() {
 
   return (
     <>
+      <LibraryInfo lib={LibraryInfos.nivo} />
       <Line
         width={500}
         height={300}

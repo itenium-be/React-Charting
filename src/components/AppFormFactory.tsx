@@ -1,4 +1,4 @@
-import { Home } from "../pages/Home";
+import { Data } from "../pages/Data";
 import { Nivo } from "../pages/Nivo";
 import { ReactChartJS2 } from "../pages/ReactChartJS2";
 import { ReactVis } from "../pages/ReactVis";
@@ -7,7 +7,7 @@ import { Victory } from "../pages/Victory";
 import { Visx } from "../pages/Visx";
 
 
-export type Charts = 'home' | 'recharts' | 'visx' | 'nivo' | 'victory' | 'reactvis' | 'reactchartjs2';
+export type Charts = 'home' | 'data' | 'recharts' | 'visx' | 'nivo' | 'victory' | 'reactvis' | 'reactchartjs2';
 
 
 type AppFormFactoryProps = {
@@ -38,9 +38,19 @@ function ComponentFactory({ page }: AppFormFactoryProps) {
     return <ReactVis />
   case 'reactchartjs2':
     return <ReactChartJS2 />
-
   case 'home':
+    return (
+      <>
+        <div className="col-6"><Recharts /></div>
+        <div className="col-6"><Visx /></div>
+        <div className="col-6"><Nivo /></div>
+        <div className="col-6"><Victory /></div>
+        <div className="col-6"><ReactVis /></div>
+        <div className="col-6"><ReactChartJS2 /></div>
+      </>
+    )
+  case 'data':
   default:
-    return <Home />;
+    return <Data />;
   }
 }

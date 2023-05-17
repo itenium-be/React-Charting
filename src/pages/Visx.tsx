@@ -1,5 +1,7 @@
 import { Axis, Grid, LineSeries, Tooltip, XYChart } from "@visx/xychart";
 import { shallowEqual, useSelector } from "react-redux";
+import { LibraryInfo } from "../components/LibraryInfo";
+import { LibraryInfos } from "../store/library-info";
 
 export function Visx() {
   const persons: IPerson[] = useSelector(
@@ -14,6 +16,7 @@ export function Visx() {
 
   return (
     <>
+      <LibraryInfo lib={LibraryInfos.visx} />
       <XYChart
         width={500}
         height={300}

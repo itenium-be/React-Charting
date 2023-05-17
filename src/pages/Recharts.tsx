@@ -1,5 +1,7 @@
 import { shallowEqual, useSelector } from "react-redux";
-import { CartesianGrid, Legend, Line, LineChart, Tooltip, XAxis, YAxis } from "recharts";
+import { Legend, Line, LineChart, Tooltip, XAxis, YAxis } from "recharts";
+import { LibraryInfo } from "../components/LibraryInfo";
+import { LibraryInfos } from "../store/library-info";
 
 export function Recharts() {
   const persons: IPerson[] = useSelector(
@@ -9,22 +11,18 @@ export function Recharts() {
 
   return (
     <>
-    <LineChart width={500}
-          height={300}
-          data={persons}
-          margin={{
-            top: 5,
-            right: 30,
-            left: 20,
-            bottom: 5,
-          }}> 
-          
+      <LibraryInfo lib={LibraryInfos.recharts} />
+      <LineChart width={500}
+        height={300}
+        data={persons}
+        margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
+        >
         <XAxis dataKey="name" />
         <YAxis />
         <Tooltip />
         <Legend />
         <Line type="monotone" dataKey="age" stroke="#8884d8" />
-    </LineChart>
+      </LineChart>
     </>
   );
 }

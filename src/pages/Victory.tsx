@@ -1,5 +1,7 @@
 import { shallowEqual, useSelector } from "react-redux";
 import { VictoryChart, VictoryContainer, VictoryLine } from "victory";
+import { LibraryInfo } from "../components/LibraryInfo";
+import { LibraryInfos } from "../store/library-info";
 
 export function Victory() {
   const persons: IPerson[] = useSelector(
@@ -12,6 +14,7 @@ export function Victory() {
 
   return (
     <>
+      <LibraryInfo lib={LibraryInfos.victory} />
       <VictoryChart
         height={300}
         width={500}

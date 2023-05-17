@@ -6,6 +6,8 @@ import {
   HorizontalGridLines,
   LineSeries,
 } from "react-vis";
+import { LibraryInfo } from "../components/LibraryInfo";
+import { LibraryInfos } from "../store/library-info";
 
 export function ReactVis() {
   const persons: IPerson[] = useSelector(
@@ -18,6 +20,7 @@ export function ReactVis() {
 
   return (
     <>
+      <LibraryInfo lib={LibraryInfos.reactVis} />
       <XYPlot width={500} height={300} xType="ordinal">
         <HorizontalGridLines />
         <XAxis />

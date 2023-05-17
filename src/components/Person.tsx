@@ -18,8 +18,11 @@ export const Person: React.FC<Props> = ({ person, removePerson }) => {
   return (
     <div className="Person">
       <div>
-        <h1>{person.name}</h1>
-        <p>{person.age}</p>
+        <h1>
+          {person.name}
+          <br />
+          <small style={{fontSize: 18}}>Age: {person.age}</small>
+        </h1>
       </div>
       <button onClick={() => deletePerson(person)}>Delete</button>
     </div>
