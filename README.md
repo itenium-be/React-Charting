@@ -62,9 +62,19 @@ which is not the metric the 2023 table used either.
 
 ## Install
 
-Node: v16.10
+```sh
+bun install
+bun run dev
+```
+
+## Refresh the comparison data
 
 ```sh
-npm install
-npm start
+GITHUB_TOKEN=$(gh auth token) bun run metrics
 ```
+
+Rewrites `src/data/libraries.json` and the tables above.
+
+## Deploy
+
+Pushing to `main` builds and publishes to GitHub Pages via `.github/workflows/deploy.yml`.
