@@ -84,7 +84,7 @@ Vite serves `index.html` from the root, not from `public/`.
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" href="/React-Charting/favicon.png" />
+    <link rel="icon" href="/favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#e78200" />
     <meta name="description" content="Demo app with several React Charting frameworks" />
