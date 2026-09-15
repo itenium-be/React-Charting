@@ -1,6 +1,6 @@
 # React-Charting
 
-[Github Pages](http://itenium.be/React-Charting/)
+[Github Pages](https://itenium-be.github.io/React-Charting/)
 
 [itenium blog post](https://itenium.be/blog/javascript/what-chart-library-to-use-in-react/)
 
