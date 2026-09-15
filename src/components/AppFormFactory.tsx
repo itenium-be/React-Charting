@@ -1,4 +1,5 @@
 import { Data } from "../pages/Data";
+import { ECharts } from "../pages/ECharts";
 import { Nivo } from "../pages/Nivo";
 import { ReactChartJS2 } from "../pages/ReactChartJS2";
 import { ReactVis } from "../pages/ReactVis";
@@ -7,7 +8,7 @@ import { Victory } from "../pages/Victory";
 import { Visx } from "../pages/Visx";
 
 
-export type Charts = 'home' | 'data' | 'recharts' | 'visx' | 'nivo' | 'victory' | 'reactvis' | 'reactchartjs2';
+export type Charts = 'home' | 'data' | 'recharts' | 'visx' | 'nivo' | 'victory' | 'reactvis' | 'reactchartjs2' | 'echarts';
 
 
 type AppFormFactoryProps = {
@@ -38,6 +39,8 @@ function ComponentFactory({ page }: AppFormFactoryProps) {
     return <ReactChartJS2 />
   case 'reactvis':
     return <ReactVis />;
+  case 'echarts':
+    return <ECharts />;
   case 'home':
     return (
       <>
@@ -47,6 +50,7 @@ function ComponentFactory({ page }: AppFormFactoryProps) {
         <div className="col-6"><Victory /></div>
         <div className="col-6"><ReactChartJS2 /></div>
         <div className="col-6"><ReactVis /></div>
+        <div className="col-6"><ECharts /></div>
       </>
     )
   case 'data':

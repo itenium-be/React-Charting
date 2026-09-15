@@ -72,6 +72,9 @@ function Header({setPage}: HeaderProps) {
             <li className="nav-item">
               <button className="btn btn-link nav-link active" onClick={() => setPage('reactvis')}>React-Vis</button>
             </li>
+            <li className="nav-item">
+              <button className="btn btn-link nav-link active" onClick={() => setPage('echarts')}>ECharts</button>
+            </li>
           </ul>
           <ul className="navbar-nav mb-2 mb-lg-0">
             <li className="nav-item">
