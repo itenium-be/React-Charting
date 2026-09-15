@@ -5,11 +5,12 @@ import { ObservablePlot } from "../pages/ObservablePlot";
 import { ReactChartJS2 } from "../pages/ReactChartJS2";
 import { ReactVis } from "../pages/ReactVis";
 import { Recharts } from "../pages/Recharts";
+import { Unovis } from "../pages/Unovis";
 import { Victory } from "../pages/Victory";
 import { Visx } from "../pages/Visx";
 
 
-export type Charts = 'home' | 'data' | 'recharts' | 'visx' | 'nivo' | 'victory' | 'reactvis' | 'reactchartjs2' | 'echarts' | 'observableplot';
+export type Charts = 'home' | 'data' | 'recharts' | 'visx' | 'nivo' | 'victory' | 'reactvis' | 'reactchartjs2' | 'echarts' | 'observableplot' | 'unovis';
 
 
 type AppFormFactoryProps = {
@@ -44,6 +45,8 @@ function ComponentFactory({ page }: AppFormFactoryProps) {
     return <ECharts />;
   case 'observableplot':
     return <ObservablePlot />;
+  case 'unovis':
+    return <Unovis />;
   case 'home':
     return (
       <>
@@ -55,6 +58,7 @@ function ComponentFactory({ page }: AppFormFactoryProps) {
         <div className="col-6"><ReactVis /></div>
         <div className="col-6"><ECharts /></div>
         <div className="col-6"><ObservablePlot /></div>
+        <div className="col-6"><Unovis /></div>
       </>
     )
   case 'data':
