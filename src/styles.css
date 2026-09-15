@@ -4,6 +4,22 @@ main {
   padding: 2rem 1rem;
 }
 
+.library-info h1 {
+  font-size: 1.6rem;
+}
+
+.badge-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin-bottom: 1rem;
+}
+
+.badge-pair {
+  display: inline-flex;
+  font-size: 0.72rem;
+}
+
 main > h1 {
   text-align: center;
 }

@@ -11,7 +11,7 @@ import {
 } from "chart.js";
 import { Line } from "react-chartjs-2";
 import { LibraryInfo } from "../components/LibraryInfo";
-import { LibraryInfos } from "../store/library-info";
+import { byKey } from "../data/libraries";
 
 ChartJS.register(
   CategoryScale,
@@ -57,7 +57,7 @@ export function ReactChartJS2() {
 
   return (
     <>
-      <LibraryInfo lib={LibraryInfos.reactChartJs2} />
+      <LibraryInfo lib={byKey.reactChartJs2} />
       <Line width={500} height={300} options={options} data={data} />
     </>
   );

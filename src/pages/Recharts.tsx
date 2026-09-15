@@ -1,7 +1,7 @@
 import { shallowEqual, useSelector } from "react-redux";
 import { Legend, Line, LineChart, Tooltip, XAxis, YAxis } from "recharts";
 import { LibraryInfo } from "../components/LibraryInfo";
-import { LibraryInfos } from "../store/library-info";
+import { byKey } from "../data/libraries";
 
 export function Recharts() {
   const persons: IPerson[] = useSelector(
@@ -11,7 +11,7 @@ export function Recharts() {
 
   return (
     <>
-      <LibraryInfo lib={LibraryInfos.recharts} />
+      <LibraryInfo lib={byKey.recharts} />
       <LineChart width={500}
         height={300}
         data={persons}
