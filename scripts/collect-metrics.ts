@@ -5,14 +5,6 @@
  * counts are the first thing to fail on a tokenless run. Set GITHUB_TOKEN to avoid it.
  */
 
-// No @types/bun or @types/node in this project's devDependencies, so tsc
-// (run standalone by `bun run build`) doesn't know these bun runtime globals.
-declare const process: { env: Record<string, string | undefined> }
-declare const Bun: {
-  write(path: string, data: string): Promise<number>
-  file(path: string): { text(): Promise<string> }
-}
-
 type Status = 'live' | 'deprecated'
 
 interface LibrarySource {
@@ -26,6 +18,9 @@ interface LibrarySource {
   docs: string
   status: Status
   note?: string
+  // Independently optional: Nivo's engine package has no separate repo, it lives in plouc/nivo alongside the wrapper.
+  engineNpm?: string
+  engineRepo?: string
 }
 
 const SOURCES: LibrarySource[] = [
@@ -34,13 +29,16 @@ const SOURCES: LibrarySource[] = [
   { key: 'visx', name: 'Visx', npm: '@visx/xychart', repo: 'airbnb/visx',
     renderingType: 'Svg', charts: '20+', storybook: 'CodeSandbox', docs: 'Somewhat Interactive', status: 'live' },
   { key: 'nivo', name: 'Nivo', npm: '@nivo/line', repo: 'plouc/nivo',
-    renderingType: 'Svg / HTML / Canvas', charts: '20', storybook: 'YES', docs: 'Very Interactive', status: 'live' },
+    renderingType: 'Svg / HTML / Canvas', charts: '20', storybook: 'YES', docs: 'Very Interactive', status: 'live',
+    engineNpm: '@nivo/core' },
   { key: 'victory', name: 'Victory', npm: 'victory', repo: 'FormidableLabs/victory',
     renderingType: 'Svg', charts: '10', storybook: 'NO', docs: 'Gallery', status: 'live' },
   { key: 'reactChartJs2', name: 'React-chartjs-2', npm: 'react-chartjs-2', repo: 'reactchartjs/react-chartjs-2',
-    renderingType: 'Canvas', charts: '15', storybook: 'CodeSandbox', docs: 'Gallery', status: 'live' },
+    renderingType: 'Canvas', charts: '15', storybook: 'CodeSandbox', docs: 'Gallery', status: 'live',
+    engineNpm: 'chart.js', engineRepo: 'chartjs/Chart.js' },
   { key: 'echarts', name: 'ECharts', npm: 'echarts-for-react', repo: 'hustcc/echarts-for-react',
-    renderingType: 'Canvas / Svg', charts: '20+', storybook: 'NO', docs: 'Very Interactive', status: 'live' },
+    renderingType: 'Canvas / Svg', charts: '20+', storybook: 'NO', docs: 'Very Interactive', status: 'live',
+    engineNpm: 'echarts', engineRepo: 'apache/echarts' },
   { key: 'observablePlot', name: 'Observable Plot', npm: '@observablehq/plot', repo: 'observablehq/plot',
     renderingType: 'Svg', charts: '30+', storybook: 'NO', docs: 'Gallery', status: 'live' },
   { key: 'unovis', name: 'Unovis', npm: '@unovis/react', repo: 'f5/unovis',
@@ -61,6 +59,14 @@ export interface LibraryMetrics extends LibrarySource {
   closedIssues: number | null
   commitCount: number | null
   lastCommit: string | null
+  engineVersion?: string
+  enginePackageSize?: number | null
+  engineWeeklyDownloads?: number | null
+  engineStars?: number | null
+  engineOpenIssues?: number | null
+  engineClosedIssues?: number | null
+  engineCommitCount?: number | null
+  engineLastCommit?: string | null
 }
 
 const warnings: string[] = []
@@ -128,41 +134,83 @@ async function commitCount(repo: string): Promise<number | null> {
 }
 
 async function collect(src: LibrarySource): Promise<LibraryMetrics> {
-  const [npm, downloads, repo, closed, commits] = await Promise.all([
-    npmInfo(src.npm),
-    weeklyDownloads(src.npm),
-    repoInfo(src.repo),
-    closedIssues(src.repo),
-    commitCount(src.repo),
-  ])
-  return { ...src, ...npm, weeklyDownloads: downloads, ...repo, closedIssues: closed, commitCount: commits }
+  const [npm, downloads, repo, closed, commits, engineNpm, engineDownloads, engineRepo, engineClosed, engineCommits] =
+    await Promise.all([
+      npmInfo(src.npm),
+      weeklyDownloads(src.npm),
+      repoInfo(src.repo),
+      closedIssues(src.repo),
+      commitCount(src.repo),
+      src.engineNpm ? npmInfo(src.engineNpm) : Promise.resolve(null),
+      src.engineNpm ? weeklyDownloads(src.engineNpm) : Promise.resolve(null),
+      src.engineRepo ? repoInfo(src.engineRepo) : Promise.resolve(null),
+      src.engineRepo ? closedIssues(src.engineRepo) : Promise.resolve(null),
+      src.engineRepo ? commitCount(src.engineRepo) : Promise.resolve(null),
+    ])
+  return {
+    ...src,
+    ...npm,
+    weeklyDownloads: downloads,
+    ...repo,
+    closedIssues: closed,
+    commitCount: commits,
+    engineVersion: engineNpm?.version,
+    enginePackageSize: engineNpm?.packageSize ?? null,
+    engineWeeklyDownloads: engineDownloads,
+    engineStars: engineRepo?.stars ?? null,
+    engineOpenIssues: engineRepo?.openIssues ?? null,
+    engineLastCommit: engineRepo?.lastCommit ?? null,
+    engineClosedIssues: engineClosed,
+    engineCommitCount: engineCommits,
+  }
 }
 
-export const fmtBytes = (n: number | null): string =>
-  n === null ? '?' : n >= 1_000_000 ? `${(n / 1_000_000).toFixed(2)} MB` : `${Math.round(n / 1000)} kB`
+export const fmtBytes = (n: number | null | undefined): string =>
+  n == null ? '?' : n >= 1_000_000 ? `${(n / 1_000_000).toFixed(2)} MB` : `${Math.round(n / 1000)} kB`
 
-export const fmtNumber = (n: number | null): string =>
-  n === null ? '?' : n.toLocaleString('en-US')
+export const fmtNumber = (n: number | null | undefined): string =>
+  n == null ? '?' : n.toLocaleString('en-US')
+
+const withEngine = (wrapper: string, engine: string | undefined): string =>
+  engine ? `${wrapper} + ${engine}` : wrapper
 
 export function overviewTable(libs: LibraryMetrics[]): string {
-  const rows = libs.map(l =>
-    `| ${l.name} | ${l.version} | ${fmtBytes(l.packageSize)} | ${fmtNumber(l.weeklyDownloads)} | ${l.renderingType} | ${l.license} | ${l.docs} |`
-  )
+  const rows = libs.map(l => {
+    const version = withEngine(l.version, l.engineVersion ? `${l.engineNpm} ${l.engineVersion}` : undefined)
+    const packageSize = withEngine(fmtBytes(l.packageSize), l.enginePackageSize != null ? fmtBytes(l.enginePackageSize) : undefined)
+    const downloads = withEngine(fmtNumber(l.weeklyDownloads), l.engineWeeklyDownloads != null ? fmtNumber(l.engineWeeklyDownloads) : undefined)
+    return `| ${l.name} | ${version} | ${packageSize} | ${downloads} | ${l.renderingType} | ${l.license} | ${l.docs} |`
+  })
   return [
     '| Library | Version | Package size | Weekly downloads | Rendering type | License | Documentation |',
     '|---------|---------|--------------|------------------|----------------|---------|---------------|',
     ...rows,
+    '',
+    '`a + b` = React wrapper + underlying charting engine, for the three libraries that are wrappers ' +
+      'around a separately published engine: ECharts, React-chartjs-2, Nivo.',
   ].join('\n')
 }
 
 export function developmentTable(libs: LibraryMetrics[]): string {
-  const rows = libs.map(l =>
-    `| ${l.name} | ${fmtNumber(l.stars)} | ${l.lastCommit ?? '?'} (${fmtNumber(l.commitCount)}) | ${fmtNumber(l.openIssues)} / ${fmtNumber(l.closedIssues)} | ${l.charts} | ${l.storybook} |`
-  )
+  const rows = libs.map(l => {
+    const stars = withEngine(fmtNumber(l.stars), l.engineStars != null ? fmtNumber(l.engineStars) : undefined)
+    const lastCommit = withEngine(
+      `${l.lastCommit ?? '?'} (${fmtNumber(l.commitCount)})`,
+      l.engineLastCommit ? `${l.engineLastCommit} (${fmtNumber(l.engineCommitCount)})` : undefined
+    )
+    const issues = withEngine(
+      `${fmtNumber(l.openIssues)} / ${fmtNumber(l.closedIssues)}`,
+      l.engineOpenIssues != null ? `${fmtNumber(l.engineOpenIssues)} / ${fmtNumber(l.engineClosedIssues)}` : undefined
+    )
+    return `| ${l.name} | ${stars} | ${lastCommit} | ${issues} | ${l.charts} | ${l.storybook} |`
+  })
   return [
     '| Library | Stars | Last commit (total) | Issues open / closed | Charts | Storybook |',
     '|---------|-------|---------------------|----------------------|--------|-----------|',
     ...rows,
+    '',
+    '`a + b` = React wrapper + underlying charting engine repo, for ECharts and React-chartjs-2. ' +
+      "Nivo's engine lives in the same repo as its wrapper, so it has no combined values here.",
   ].join('\n')
 }
 

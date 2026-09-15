@@ -20,7 +20,14 @@
       "openIssues": 447,
       "lastCommit": "2026-09-15",
       "closedIssues": 3236,
-      "commitCount": 5024
+      "commitCount": 5024,
+      "enginePackageSize": null,
+      "engineWeeklyDownloads": null,
+      "engineStars": null,
+      "engineOpenIssues": null,
+      "engineLastCommit": null,
+      "engineClosedIssues": null,
+      "engineCommitCount": null
     },
     {
       "key": "visx",
@@ -41,7 +48,14 @@
       "openIssues": 149,
       "lastCommit": "2026-06-22",
       "closedIssues": 715,
-      "commitCount": 3381
+      "commitCount": 3381,
+      "enginePackageSize": null,
+      "engineWeeklyDownloads": null,
+      "engineStars": null,
+      "engineOpenIssues": null,
+      "engineLastCommit": null,
+      "engineClosedIssues": null,
+      "engineCommitCount": null
     },
     {
       "key": "nivo",
@@ -53,6 +67,7 @@
       "storybook": "YES",
       "docs": "Very Interactive",
       "status": "live",
+      "engineNpm": "@nivo/core",
       "version": "0.99.0",
       "publishedAt": "2025-05-23",
       "license": "MIT",
@@ -62,7 +77,15 @@
       "openIssues": 50,
       "lastCommit": "2026-07-21",
       "closedIssues": 1715,
-      "commitCount": 2334
+      "commitCount": 2334,
+      "engineVersion": "0.99.0",
+      "enginePackageSize": 254394,
+      "engineWeeklyDownloads": 1170326,
+      "engineStars": null,
+      "engineOpenIssues": null,
+      "engineLastCommit": null,
+      "engineClosedIssues": null,
+      "engineCommitCount": null
     },
     {
       "key": "victory",
@@ -83,7 +106,14 @@
       "openIssues": 91,
       "lastCommit": "2025-12-19",
       "closedIssues": 1834,
-      "commitCount": 8649
+      "commitCount": 8649,
+      "enginePackageSize": null,
+      "engineWeeklyDownloads": null,
+      "engineStars": null,
+      "engineOpenIssues": null,
+      "engineLastCommit": null,
+      "engineClosedIssues": null,
+      "engineCommitCount": null
     },
     {
       "key": "reactChartJs2",
@@ -95,6 +125,8 @@
       "storybook": "CodeSandbox",
       "docs": "Gallery",
       "status": "live",
+      "engineNpm": "chart.js",
+      "engineRepo": "chartjs/Chart.js",
       "version": "5.3.1",
       "publishedAt": "2025-10-27",
       "license": "MIT",
@@ -104,7 +136,15 @@
       "openIssues": 111,
       "lastCommit": "2026-09-13",
       "closedIssues": 692,
-      "commitCount": 626
+      "commitCount": 626,
+      "engineVersion": "4.5.1",
+      "enginePackageSize": 6178899,
+      "engineWeeklyDownloads": 9196374,
+      "engineStars": 67696,
+      "engineOpenIssues": 579,
+      "engineLastCommit": "2026-09-14",
+      "engineClosedIssues": 6821,
+      "engineCommitCount": 4595
     },
     {
       "key": "echarts",
@@ -116,6 +156,8 @@
       "storybook": "NO",
       "docs": "Very Interactive",
       "status": "live",
+      "engineNpm": "echarts",
+      "engineRepo": "apache/echarts",
       "version": "3.0.6",
       "publishedAt": "2026-01-21",
       "license": "MIT",
@@ -125,7 +167,15 @@
       "openIssues": 53,
       "lastCommit": "2026-01-21",
       "closedIssues": 479,
-      "commitCount": 37
+      "commitCount": 37,
+      "engineVersion": "6.1.0",
+      "enginePackageSize": 60297703,
+      "engineWeeklyDownloads": 3725913,
+      "engineStars": 67327,
+      "engineOpenIssues": 1501,
+      "engineLastCommit": "2026-09-14",
+      "engineClosedIssues": 18067,
+      "engineCommitCount": 10397
     },
     {
       "key": "observablePlot",
@@ -146,7 +196,14 @@
       "openIssues": 349,
       "lastCommit": "2026-09-01",
       "closedIssues": 755,
-      "commitCount": 2130
+      "commitCount": 2130,
+      "enginePackageSize": null,
+      "engineWeeklyDownloads": null,
+      "engineStars": null,
+      "engineOpenIssues": null,
+      "engineLastCommit": null,
+      "engineClosedIssues": null,
+      "engineCommitCount": null
     },
     {
       "key": "unovis",
@@ -167,7 +224,14 @@
       "openIssues": 101,
       "lastCommit": "2026-09-10",
       "closedIssues": 186,
-      "commitCount": 1357
+      "commitCount": 1357,
+      "enginePackageSize": null,
+      "engineWeeklyDownloads": null,
+      "engineStars": null,
+      "engineOpenIssues": null,
+      "engineLastCommit": null,
+      "engineClosedIssues": null,
+      "engineCommitCount": null
     },
     {
       "key": "reactVis",
@@ -189,7 +253,14 @@
       "openIssues": 343,
       "lastCommit": "2024-12-18",
       "closedIssues": 514,
-      "commitCount": 899
+      "commitCount": 899,
+      "enginePackageSize": null,
+      "engineWeeklyDownloads": null,
+      "engineStars": null,
+      "engineOpenIssues": null,
+      "engineLastCommit": null,
+      "engineClosedIssues": null,
+      "engineCommitCount": null
     }
   ],
   "warnings": []
