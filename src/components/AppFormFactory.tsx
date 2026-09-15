@@ -1,6 +1,7 @@
 import { Data } from "../pages/Data";
 import { Nivo } from "../pages/Nivo";
 import { ReactChartJS2 } from "../pages/ReactChartJS2";
+import { ReactVis } from "../pages/ReactVis";
 import { Recharts } from "../pages/Recharts";
 import { Victory } from "../pages/Victory";
 import { Visx } from "../pages/Visx";
@@ -35,6 +36,8 @@ function ComponentFactory({ page }: AppFormFactoryProps) {
     return <Victory />
   case 'reactchartjs2':
     return <ReactChartJS2 />
+  case 'reactvis':
+    return <ReactVis />;
   case 'home':
     return (
       <>
@@ -43,6 +46,7 @@ function ComponentFactory({ page }: AppFormFactoryProps) {
         <div className="col-6"><Nivo /></div>
         <div className="col-6"><Victory /></div>
         <div className="col-6"><ReactChartJS2 /></div>
+        <div className="col-6"><ReactVis /></div>
       </>
     )
   case 'data':
