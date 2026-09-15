@@ -7,10 +7,6 @@ export function ReactVis() {
   return (
     <>
       <LibraryInfo lib={lib} />
-      <div className="chart-skeleton" role="img" aria-label="No chart: library is deprecated">
-        <div className="chart-skeleton-plot" />
-        <div className="chart-skeleton-axis" />
-      </div>
       <div className="alert alert-warning" role="alert">
         <strong>Deprecated.</strong> {lib.note}
         <br />
