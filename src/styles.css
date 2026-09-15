@@ -8,6 +8,17 @@ main {
   font-size: 1.6rem;
 }
 
+.library-info h1 .rating {
+  font-size: 1rem;
+}
+
+.app-footer {
+  text-align: center;
+  padding: 1.5rem 1rem;
+  color: #666;
+  font-size: 0.85rem;
+}
+
 .badge-row {
   display: flex;
   flex-wrap: wrap;

@@ -1,7 +1,11 @@
 import { useState } from "react";
 import { AppFormFactory, Charts } from "./components/AppFormFactory";
+import { collectedAt } from "./data/libraries";
 
 import "./styles.css";
+
+const REPO_URL = "https://github.com/itenium-be/React-Charting";
+const BLOG_URL = "https://itenium.be/blog/javascript/what-chart-library-to-use-in-react/";
 
 export function App() {
   const [page, setPage] = useState<Charts>('home');
@@ -14,7 +18,19 @@ export function App() {
           <AppFormFactory page={page} />
         </div>
       </div>
+      <Footer />
     </div>
+  );
+}
+
+function Footer() {
+  return (
+    <footer className="app-footer">
+      <p>Data last updated on: {collectedAt}</p>
+      <p>
+        <a href={REPO_URL}>Repo</a> &middot; <a href={BLOG_URL}>Blog post</a>
+      </p>
+    </footer>
   );
 }
 
@@ -52,6 +68,18 @@ function Header({setPage}: HeaderProps) {
             </li>
             <li className="nav-item">
               <button className="btn btn-link nav-link active" onClick={() => setPage('reactchartjs2')}>React-ChartJS-2</button>
+            </li>
+          </ul>
+          <ul className="navbar-nav mb-2 mb-lg-0">
+            <li className="nav-item">
+              <a className="nav-link" href={BLOG_URL} aria-label="Blog post">
+                <i className="fas fa-blog" />
+              </a>
+            </li>
+            <li className="nav-item">
+              <a className="nav-link" href={REPO_URL} aria-label="GitHub repository">
+                <i className="fab fa-github" />
+              </a>
             </li>
           </ul>
         </div>

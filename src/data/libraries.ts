@@ -9,8 +9,10 @@ export interface LibraryMetrics {
   charts: string
   storybook: string
   docs: string
+  docsUrl: string
   status: 'live' | 'deprecated'
   note?: string
+  rating?: string
   version: string
   publishedAt: string
   license: string

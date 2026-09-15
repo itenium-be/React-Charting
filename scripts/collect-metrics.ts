@@ -16,8 +16,11 @@ interface LibrarySource {
   charts: string
   storybook: string
   docs: string
+  docsUrl: string
   status: Status
   note?: string
+  // Hand-assigned subjective judgement, not scraped; unset for libraries the user hasn't rated yet.
+  rating?: string
   // Independently optional: Nivo's engine package has no separate repo, it lives in plouc/nivo alongside the wrapper.
   engineNpm?: string
   engineRepo?: string
@@ -25,26 +28,35 @@ interface LibrarySource {
 
 const SOURCES: LibrarySource[] = [
   { key: 'recharts', name: 'Recharts', npm: 'recharts', repo: 'recharts/recharts',
-    renderingType: 'Svg', charts: '11', storybook: 'WIP', docs: 'Examples', status: 'live' },
+    renderingType: 'Svg', charts: '11', storybook: 'WIP', docs: 'Examples', docsUrl: 'https://recharts.org/',
+    status: 'live', rating: '⭐⭐⭐⭐' },
   { key: 'visx', name: 'Visx', npm: '@visx/xychart', repo: 'airbnb/visx',
-    renderingType: 'Svg', charts: '20+', storybook: 'CodeSandbox', docs: 'Somewhat Interactive', status: 'live' },
+    renderingType: 'Svg', charts: '20+', storybook: 'CodeSandbox', docs: 'Somewhat Interactive',
+    docsUrl: 'https://airbnb.io/visx/docs', status: 'live', rating: '⭐⭐⭐' },
   { key: 'nivo', name: 'Nivo', npm: '@nivo/line', repo: 'plouc/nivo',
-    renderingType: 'Svg / HTML / Canvas', charts: '20', storybook: 'YES', docs: 'Very Interactive', status: 'live',
+    renderingType: 'Svg / HTML / Canvas', charts: '20', storybook: 'YES', docs: 'Very Interactive',
+    docsUrl: 'https://nivo.rocks/line/', status: 'live', rating: '⭐⭐⭐⭐',
     engineNpm: '@nivo/core' },
   { key: 'victory', name: 'Victory', npm: 'victory', repo: 'FormidableLabs/victory',
-    renderingType: 'Svg', charts: '10', storybook: 'NO', docs: 'Gallery', status: 'live' },
+    renderingType: 'Svg', charts: '10', storybook: 'NO', docs: 'Gallery',
+    docsUrl: 'https://commerce.nearform.com/open-source/victory/docs', status: 'live', rating: '⭐⭐' },
   { key: 'reactChartJs2', name: 'React-chartjs-2', npm: 'react-chartjs-2', repo: 'reactchartjs/react-chartjs-2',
-    renderingType: 'Canvas', charts: '15', storybook: 'CodeSandbox', docs: 'Gallery', status: 'live',
+    renderingType: 'Canvas', charts: '15', storybook: 'CodeSandbox', docs: 'Gallery',
+    docsUrl: 'https://react-chartjs-2.js.org/', status: 'live', rating: '🤔',
     engineNpm: 'chart.js', engineRepo: 'chartjs/Chart.js' },
   { key: 'echarts', name: 'ECharts', npm: 'echarts-for-react', repo: 'hustcc/echarts-for-react',
-    renderingType: 'Canvas / Svg', charts: '20+', storybook: 'NO', docs: 'Very Interactive', status: 'live',
+    renderingType: 'Canvas / Svg', charts: '20+', storybook: 'NO', docs: 'Very Interactive',
+    docsUrl: 'https://echarts.apache.org/en/option.html', status: 'live',
     engineNpm: 'echarts', engineRepo: 'apache/echarts' },
   { key: 'observablePlot', name: 'Observable Plot', npm: '@observablehq/plot', repo: 'observablehq/plot',
-    renderingType: 'Svg', charts: '30+', storybook: 'NO', docs: 'Gallery', status: 'live' },
+    renderingType: 'Svg', charts: '30+', storybook: 'NO', docs: 'Gallery',
+    docsUrl: 'https://observablehq.com/plot/', status: 'live' },
   { key: 'unovis', name: 'Unovis', npm: '@unovis/react', repo: 'f5/unovis',
-    renderingType: 'Svg / Canvas', charts: '20+', storybook: 'NO', docs: 'Gallery', status: 'live' },
+    renderingType: 'Svg / Canvas', charts: '20+', storybook: 'NO', docs: 'Gallery',
+    docsUrl: 'https://unovis.dev/', status: 'live' },
   { key: 'reactVis', name: 'React-vis', npm: 'react-vis', repo: 'uber/react-vis',
-    renderingType: 'Svg / Canvas', charts: '10', storybook: 'Yes', docs: 'Gallery', status: 'deprecated',
+    renderingType: 'Svg / Canvas', charts: '10', storybook: 'Yes', docs: 'Gallery',
+    docsUrl: 'https://uber.github.io/react-vis/', status: 'deprecated', rating: '⭐⭐',
     note: 'Deprecated by Uber. No longer maintained and does not support React 17 or later.' },
 ]
 
