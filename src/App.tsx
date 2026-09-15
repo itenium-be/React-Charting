@@ -75,6 +75,9 @@ function Header({setPage}: HeaderProps) {
             <li className="nav-item">
               <button className="btn btn-link nav-link active" onClick={() => setPage('echarts')}>ECharts</button>
             </li>
+            <li className="nav-item">
+              <button className="btn btn-link nav-link active" onClick={() => setPage('observableplot')}>Observable Plot</button>
+            </li>
           </ul>
           <ul className="navbar-nav mb-2 mb-lg-0">
             <li className="nav-item">
