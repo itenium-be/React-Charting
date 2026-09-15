@@ -19,6 +19,9 @@ export function ObservablePlot() {
       width: 500,
       height: 300,
       marginLeft: 50,
+      // Plot sorts ordinal domains alphabetically; the other libraries keep
+      // insertion order, and the comparison is only fair if all nine match.
+      x: { domain: persons.map(p => p.name) },
       marks: [
         Plot.line(persons, { x: "name", y: "age", stroke: "#8884d8" }),
         Plot.dot(persons, { x: "name", y: "age", fill: "#8884d8", title: d => `${d.name}: ${d.age}` }),
