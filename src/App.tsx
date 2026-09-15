@@ -51,9 +51,6 @@ function Header({setPage}: HeaderProps) {
               <button className="btn btn-link nav-link active" onClick={() => setPage('victory')}>Victory</button>
             </li>
             <li className="nav-item">
-              <button className="btn btn-link nav-link active" onClick={() => setPage('reactvis')}>React-Vis</button>
-            </li>
-            <li className="nav-item">
               <button className="btn btn-link nav-link active" onClick={() => setPage('reactchartjs2')}>React-ChartJS-2</button>
             </li>
           </ul>
