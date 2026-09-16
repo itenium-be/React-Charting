@@ -42,7 +42,7 @@ const SOURCES: LibrarySource[] = [
     docsUrl: 'https://commerce.nearform.com/open-source/victory/docs', status: 'live', rating: '⭐⭐' },
   { key: 'reactChartJs2', name: 'React-chartjs-2', npm: 'react-chartjs-2', repo: 'reactchartjs/react-chartjs-2',
     renderingType: 'Canvas', charts: '15', storybook: 'CodeSandbox', docs: 'Gallery',
-    docsUrl: 'https://react-chartjs-2.js.org/', status: 'live', rating: '🤔',
+    docsUrl: 'https://react-chartjs-2.js.org/', status: 'live', rating: '⭐⭐⭐',
     engineNpm: 'chart.js', engineRepo: 'chartjs/Chart.js' },
   { key: 'echarts', name: 'ECharts', npm: 'echarts-for-react', repo: 'hustcc/echarts-for-react',
     renderingType: 'Canvas / Svg', charts: '20+', storybook: 'NO', docs: 'Very Interactive',
