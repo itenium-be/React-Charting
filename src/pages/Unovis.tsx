@@ -1,5 +1,5 @@
 import { shallowEqual, useSelector } from "react-redux";
-import { VisXYContainer, VisLine, VisAxis, VisScatter, VisTooltip } from "@unovis/react";
+import { VisXYContainer, VisLine, VisAxis, VisScatter, VisTooltip, VisCrosshair } from "@unovis/react";
 import { LibraryInfo } from "../components/LibraryInfo";
 import { byKey } from "../data/libraries";
 
@@ -20,6 +20,8 @@ export function Unovis() {
         <VisScatter x={x} y={y} color="#8884d8" />
         <VisAxis type="x" tickFormat={(tick: number | Date) => persons[tick as number]?.name ?? ""} />
         <VisAxis type="y" />
+        {/* XYContainer wires this crosshair's tooltip to the sibling VisTooltip automatically. */}
+        <VisCrosshair<IPerson> template={(d) => `${d.name}: ${d.age}`} />
         <VisTooltip />
       </VisXYContainer>
     </>

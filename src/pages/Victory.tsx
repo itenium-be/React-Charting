@@ -1,7 +1,11 @@
 import { shallowEqual, useSelector } from "react-redux";
-import { VictoryChart, VictoryContainer, VictoryLine } from "victory";
+import { createContainer, VictoryChart, VictoryLine, VictoryTooltip } from "victory";
 import { LibraryInfo } from "../components/LibraryInfo";
 import { byKey } from "../data/libraries";
+
+// Combines the voronoi container's nearest-point tooltip with the cursor
+// container's vertical line, matching the hover interaction on other pages.
+const VictoryVoronoiCursorContainer = createContainer("voronoi", "cursor");
 
 export function Victory() {
   const persons: IPerson[] = useSelector(
@@ -18,7 +22,15 @@ export function Victory() {
       <VictoryChart
         height={300}
         width={500}
-        containerComponent={<VictoryContainer responsive={false} />}
+        containerComponent={
+          <VictoryVoronoiCursorContainer
+            responsive={false}
+            voronoiDimension="x"
+            cursorDimension="x"
+            labels={({ datum }: { datum: { x: string; y: number } }) => `${datum.x}: ${datum.y}`}
+            labelComponent={<VictoryTooltip />}
+          />
+        }
       >
         <VictoryLine data={data} />
       </VictoryChart>

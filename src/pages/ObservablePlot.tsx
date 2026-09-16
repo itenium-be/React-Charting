@@ -25,6 +25,8 @@ export function ObservablePlot() {
       marks: [
         Plot.line(persons, { x: "name", y: "age", stroke: "#8884d8" }),
         Plot.dot(persons, { x: "name", y: "age", fill: "#8884d8", title: d => `${d.name}: ${d.age}` }),
+        Plot.ruleX(persons, Plot.pointerX({ x: "name", stroke: "#999" })),
+        Plot.tip(persons, Plot.pointerX({ x: "name", y: "age", title: d => `${d.name}: ${d.age}` })),
       ],
     });
 

@@ -142,3 +142,23 @@ main > p {
   margin: 0 0.6rem;
   background: #dee2e6;
 }
+
+.library-info h1 {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.library-links {
+  margin-left: auto;
+  display: inline-flex;
+  gap: 0.9rem;
+}
+
+.library-links a {
+  color: #000;
+}
+
+.library-links a:hover {
+  color: #e78200;
+}

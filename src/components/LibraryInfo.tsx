@@ -26,12 +26,14 @@ export function LibraryInfo({ lib }: { lib: LibraryMetrics }) {
             {lib.rating}
           </span>
         )}{" "}
-        <a href={`https://github.com/${lib.repo}`} aria-label={`${lib.name} on GitHub`}>
-          <i className="fab fa-github" />
-        </a>{" "}
-        <a href={lib.docsUrl} aria-label={`${lib.name} documentation`}>
-          <i className="fas fa-book" />
-        </a>
+        <span className="library-links">
+          <a href={lib.docsUrl} aria-label={`${lib.name} documentation`}>
+            <i className="fas fa-book" />
+          </a>
+          <a href={`https://github.com/${lib.repo}`} aria-label={`${lib.name} on GitHub`}>
+            <i className="fab fa-github" />
+          </a>
+        </span>
       </h1>
       <div className="badge-row">
         <Badge label="version" value={lib.version} title="npm version" tone="primary" />

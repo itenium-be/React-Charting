@@ -25,6 +25,12 @@ ChartJS.register(
 
 export const options = {
   responsive: false,
+  // Chart.js core ships no crosshair; index mode is the closest it gets to the
+  // hover-anywhere tooltip the other libraries provide out of the box.
+  interaction: {
+    mode: "index" as const,
+    intersect: false,
+  },
   plugins: {
     legend: {
       position: "top" as const,

@@ -50,15 +50,15 @@ function ComponentFactory({ page }: AppFormFactoryProps) {
   case 'home':
     return (
       <>
-        <div className="col-6 chart-card"><Recharts /></div>
-        <div className="col-6 chart-card"><Visx /></div>
-        <div className="col-6 chart-card"><Nivo /></div>
-        <div className="col-6 chart-card"><Victory /></div>
-        <div className="col-6 chart-card"><ReactChartJS2 /></div>
-        <div className="col-6 chart-card"><ReactVis /></div>
-        <div className="col-6 chart-card"><ECharts /></div>
-        <div className="col-6 chart-card"><ObservablePlot /></div>
-        <div className="col-6 chart-card"><Unovis /></div>
+        <div className="col-6"><div className="chart-card"><Recharts /></div></div>
+        <div className="col-6"><div className="chart-card"><Visx /></div></div>
+        <div className="col-6"><div className="chart-card"><Nivo /></div></div>
+        <div className="col-6"><div className="chart-card"><Victory /></div></div>
+        <div className="col-6"><div className="chart-card"><ReactChartJS2 /></div></div>
+        <div className="col-6"><div className="chart-card"><ReactVis /></div></div>
+        <div className="col-6"><div className="chart-card"><ECharts /></div></div>
+        <div className="col-6"><div className="chart-card"><ObservablePlot /></div></div>
+        <div className="col-6"><div className="chart-card"><Unovis /></div></div>
       </>
     )
   case 'data':
