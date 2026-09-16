@@ -1,5 +1,5 @@
 import { shallowEqual, useSelector } from "react-redux";
-import { createContainer, VictoryAxis, VictoryChart, VictoryLine, VictoryTooltip } from "victory";
+import { createContainer, VictoryAxis, VictoryChart, VictoryLabel, VictoryLine, VictoryTooltip } from "victory";
 import { LibraryInfo } from "../components/LibraryInfo";
 import { byKey } from "../data/libraries";
 
@@ -22,6 +22,7 @@ export function Victory() {
       <VictoryChart
         height={300}
         width={500}
+        padding={{ top: 20, right: 25, bottom: 50, left: 80 }}
         animate={{ duration: 800, onLoad: { duration: 800 } }}
         containerComponent={
           <VictoryVoronoiCursorContainer
@@ -34,7 +35,7 @@ export function Victory() {
         }
       >
         <VictoryAxis label="name" />
-        <VictoryAxis dependentAxis label="age" />
+        <VictoryAxis dependentAxis label="age" axisLabelComponent={<VictoryLabel dy={-48} />} />
         <VictoryLine data={data} />
       </VictoryChart>
     </>
