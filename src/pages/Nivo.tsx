@@ -22,18 +22,19 @@ export function Nivo() {
         margin={{ top: 20, right: 20, bottom: 60, left: 80 }}
         enableSlices="x"
         data={[{ id: "persons", data: data }]}
-        xScale={{
-          type: "band",
-        }}
+        xScale={{ type: "point" }}
         yScale={{ type: "linear" }}
-        axisLeft={{
-          legend: "linear scale",
-          legendOffset: 12,
-        }}
-        axisBottom={{
-          legend: "linear scale",
-          legendOffset: -12,
-        }}
+        axisLeft={{ legend: "age", legendOffset: -60, legendPosition: "middle" }}
+        axisBottom={{ legend: "name", legendOffset: 40, legendPosition: "middle" }}
+        sliceTooltip={({ slice }) => (
+          <div className="nivo-tooltip">
+            {slice.points.map((point) => (
+              <div key={point.id}>
+                <strong>{String(point.data.x)}</strong>: {String(point.data.y)}
+              </div>
+            ))}
+          </div>
+        )}
       />
     </>
   );

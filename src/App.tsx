@@ -54,6 +54,7 @@ function Header({setPage}: HeaderProps) {
             <li className="nav-item">
               <button className="btn btn-link nav-link active" onClick={() => setPage('data')}>Data</button>
             </li>
+            <li className="nav-item nav-separator" aria-hidden="true" />
             <li className="nav-item">
               <button className="btn btn-link nav-link active" onClick={() => setPage('recharts')}>Recharts</button>
             </li>

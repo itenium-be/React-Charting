@@ -118,3 +118,27 @@ main > p {
 .Person button:hover {
   background: #e06a6a;
 }
+
+.chart-card {
+  border: 1px solid #dee2e6;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+  background: #fff;
+}
+
+.nivo-tooltip {
+  background: #fff;
+  border: 1px solid #dee2e6;
+  border-radius: 4px;
+  padding: 0.35rem 0.6rem;
+  font-size: 0.8rem;
+}
+
+.nav-separator {
+  align-self: center;
+  width: 1px;
+  height: 1.4rem;
+  margin: 0 0.6rem;
+  background: #dee2e6;
+}
