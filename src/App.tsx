@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { AppFormFactory, Charts } from "./components/AppFormFactory";
+import { AppFormFactory, Charts, chartPages } from "./components/AppFormFactory";
 import { collectedAt } from "./data/libraries";
 
 import "./styles.css";
@@ -58,33 +58,15 @@ function Header({setPage}: HeaderProps) {
               <button className="btn btn-link nav-link active" onClick={() => setPage('comparison')}>Comparison</button>
             </li>
             <li className="nav-item nav-separator" aria-hidden="true" />
-            <li className="nav-item">
-              <button className="btn btn-link nav-link active" onClick={() => setPage('recharts')}>Recharts</button>
-            </li>
-            <li className="nav-item">
-              <button className="btn btn-link nav-link active" onClick={() => setPage('visx')}>Visx</button>
-            </li>
-            <li className="nav-item">
-              <button className="btn btn-link nav-link active" onClick={() => setPage('nivo')}>Nivo</button>
-            </li>
-            <li className="nav-item">
-              <button className="btn btn-link nav-link active" onClick={() => setPage('victory')}>Victory</button>
-            </li>
-            <li className="nav-item">
-              <button className="btn btn-link nav-link active" onClick={() => setPage('reactchartjs2')}>React-ChartJS-2</button>
-            </li>
-            <li className="nav-item">
-              <button className="btn btn-link nav-link active" onClick={() => setPage('echarts')}>ECharts</button>
-            </li>
-            <li className="nav-item">
-              <button className="btn btn-link nav-link active" onClick={() => setPage('observableplot')}>Observable Plot</button>
-            </li>
-            <li className="nav-item">
-              <button className="btn btn-link nav-link active" onClick={() => setPage('unovis')}>Unovis</button>
-            </li>
-            <li className="nav-item nav-deprecated" title="Deprecated - no longer maintained">
-              <button className="btn btn-link nav-link active" onClick={() => setPage('reactvis')}>React-Vis</button>
-            </li>
+            {chartPages.map(({ page, label, deprecated }) => (
+              <li
+                key={page}
+                className={deprecated ? "nav-item nav-deprecated" : "nav-item"}
+                title={deprecated ? "Deprecated - no longer maintained" : undefined}
+              >
+                <button className="btn btn-link nav-link active" onClick={() => setPage(page)}>{label}</button>
+              </li>
+            ))}
           </ul>
           <ul className="navbar-nav mb-2 mb-lg-0">
             <li className="nav-item">

@@ -48,3 +48,9 @@ export const formatCompact = (n: number | null): string =>
 
 export const formatSize = (n: number | null): string =>
   n === null ? '?' : n >= 1_000_000 ? `${(n / 1_000_000).toFixed(1)} MB` : `${Math.round(n / 1000)} kB`
+
+/** Curated rating first, then reach: the order the site presents libraries in. */
+export const rankedLibraries: LibraryMetrics[] = [...libraries].sort((a, b) => {
+  const byRating = (b.rating?.length ?? 0) - (a.rating?.length ?? 0);
+  return byRating !== 0 ? byRating : (b.weeklyDownloads ?? 0) - (a.weeklyDownloads ?? 0);
+});

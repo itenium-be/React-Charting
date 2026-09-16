@@ -45,7 +45,7 @@ which is not the metric the 2023 table used either.
 
 | Library | Stars | Last commit (total) | Issues open / closed | Charts | Storybook |
 |---------|-------|---------------------|----------------------|--------|-----------|
-| Recharts | 27,559 | 2026-09-16 (5,029) | 447 / 3,236 | 11 | WIP |
+| Recharts | 27,559 | 2026-09-16 (5,030) | 446 / 3,236 | 11 | WIP |
 | Visx | 21,051 | 2026-06-22 (3,381) | 150 / 715 | 20+ | CodeSandbox |
 | Nivo | 14,098 | 2026-07-21 (2,334) | 50 / 1,715 | 20 | YES |
 | Victory | 11,240 | 2025-12-19 (8,649) | 91 / 1,834 | 10 | NO |

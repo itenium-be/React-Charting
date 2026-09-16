@@ -1,3 +1,4 @@
+import type { ComponentType } from "react";
 import { Comparison } from "../pages/Comparison";
 import { Data } from "../pages/Data";
 import { ECharts } from "../pages/ECharts";
@@ -9,9 +10,35 @@ import { Recharts } from "../pages/Recharts";
 import { Unovis } from "../pages/Unovis";
 import { Victory } from "../pages/Victory";
 import { Visx } from "../pages/Visx";
+import { rankedLibraries } from "../data/libraries";
 
 
 export type Charts = 'home' | 'data' | 'comparison' | 'recharts' | 'visx' | 'nivo' | 'victory' | 'reactvis' | 'reactchartjs2' | 'echarts' | 'observableplot' | 'unovis';
+
+
+type ChartPage = {
+  page: Charts;
+  label: string;
+  Component: ComponentType;
+  deprecated?: boolean;
+};
+
+/** Keyed by the library keys in libraries.json, so rankedLibraries drives the order. */
+const PAGES: Record<string, ChartPage> = {
+  recharts: { page: 'recharts', label: 'Recharts', Component: Recharts },
+  visx: { page: 'visx', label: 'Visx', Component: Visx },
+  nivo: { page: 'nivo', label: 'Nivo', Component: Nivo },
+  victory: { page: 'victory', label: 'Victory', Component: Victory },
+  reactChartJs2: { page: 'reactchartjs2', label: 'React-ChartJS-2', Component: ReactChartJS2 },
+  echarts: { page: 'echarts', label: 'ECharts', Component: ECharts },
+  observablePlot: { page: 'observableplot', label: 'Observable Plot', Component: ObservablePlot },
+  unovis: { page: 'unovis', label: 'Unovis', Component: Unovis },
+  reactVis: { page: 'reactvis', label: 'React-Vis', Component: ReactVis, deprecated: true },
+};
+
+export const chartPages: ChartPage[] = rankedLibraries
+  .map((lib) => PAGES[lib.key])
+  .filter(Boolean);
 
 
 type AppFormFactoryProps = {
@@ -29,43 +56,26 @@ export function AppFormFactory({ page }: AppFormFactoryProps) {
 
 
 function ComponentFactory({ page }: AppFormFactoryProps) {
-  switch (page) {
-  case 'recharts':
-    return <Recharts />;
-  case 'visx':
-    return <Visx />;
-  case 'nivo':
-    return <Nivo />;
-  case 'victory':
-    return <Victory />
-  case 'reactchartjs2':
-    return <ReactChartJS2 />
-  case 'reactvis':
-    return <ReactVis />;
-  case 'echarts':
-    return <ECharts />;
-  case 'observableplot':
-    return <ObservablePlot />;
-  case 'unovis':
-    return <Unovis />;
-  case 'comparison':
+  if (page === 'comparison') {
     return <Comparison />;
-  case 'home':
+  }
+
+  if (page === 'home') {
     return (
       <>
-        <div className="col-6"><div className="chart-card"><Recharts /></div></div>
-        <div className="col-6"><div className="chart-card"><Visx /></div></div>
-        <div className="col-6"><div className="chart-card"><Nivo /></div></div>
-        <div className="col-6"><div className="chart-card"><Victory /></div></div>
-        <div className="col-6"><div className="chart-card"><ReactChartJS2 /></div></div>
-        <div className="col-6"><div className="chart-card"><ECharts /></div></div>
-        <div className="col-6"><div className="chart-card"><ObservablePlot /></div></div>
-        <div className="col-6"><div className="chart-card"><Unovis /></div></div>
-        <div className="col-6"><div className="chart-card"><ReactVis /></div></div>
+        {chartPages.map(({ page: key, Component }) => (
+          <div className="col-6" key={key}>
+            <div className="chart-card"><Component /></div>
+          </div>
+        ))}
       </>
-    )
-  case 'data':
-  default:
-    return <Data />;
+    );
   }
+
+  const match = chartPages.find((p) => p.page === page);
+  if (match) {
+    return <match.Component />;
+  }
+
+  return <Data />;
 }

@@ -111,7 +111,7 @@ const COLUMNS: Column[] = [
 ];
 
 export function Comparison() {
-  const [sortKey, setSortKey] = useState("stars");
+  const [sortKey, setSortKey] = useState("rating");
   const [ascending, setAscending] = useState(false);
 
   const sorted = useMemo(() => {
@@ -123,7 +123,9 @@ export function Comparison() {
       if (av === null) return 1;
       if (bv === null) return -1;
       const cmp = typeof av === "number" && typeof bv === "number" ? av - bv : String(av).localeCompare(String(bv));
-      return ascending ? cmp : -cmp;
+      if (cmp !== 0) return ascending ? cmp : -cmp;
+      const tie = (a.weeklyDownloads ?? 0) - (b.weeklyDownloads ?? 0);
+      return ascending ? tie : -tie;
     });
   }, [sortKey, ascending]);
 
