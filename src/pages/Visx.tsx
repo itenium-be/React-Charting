@@ -1,4 +1,4 @@
-import { Axis, Grid, LineSeries, Tooltip, XYChart } from "@visx/xychart";
+import { AnimatedAxis, AnimatedGrid, AnimatedLineSeries, Tooltip, XYChart } from "@visx/xychart";
 import { shallowEqual, useSelector } from "react-redux";
 import { LibraryInfo } from "../components/LibraryInfo";
 import { byKey } from "../data/libraries";
@@ -23,10 +23,10 @@ export function Visx() {
         xScale={{ type: "band" }}
         yScale={{ type: "linear" }}
       >
-        <Axis orientation="bottom" />
-        <Axis orientation="left" />
-        <Grid columns={false} numTicks={4} />
-        <LineSeries dataKey="Line 1" data={persons} {...accessors} />
+        <AnimatedAxis orientation="bottom" />
+        <AnimatedAxis orientation="left" />
+        <AnimatedGrid columns={false} numTicks={4} />
+        <AnimatedLineSeries dataKey="Line 1" data={persons} {...accessors} />
         <Tooltip<IPerson>
           snapTooltipToDatumX
           snapTooltipToDatumY

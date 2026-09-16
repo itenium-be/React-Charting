@@ -22,6 +22,7 @@ export function Victory() {
       <VictoryChart
         height={300}
         width={500}
+        animate={{ duration: 800, onLoad: { duration: 800 } }}
         containerComponent={
           <VictoryVoronoiCursorContainer
             responsive={false}

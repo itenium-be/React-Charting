@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { Line } from "@nivo/line";
 import { shallowEqual, useSelector } from "react-redux";
 import { LibraryInfo } from "../components/LibraryInfo";
@@ -8,8 +9,16 @@ export function Nivo() {
     (state: PersonState) => state.persons,
     shallowEqual
   );
+  // Nivo springs on data transitions, not on mount, so the chart starts flat
+  // and the real values are set once to produce a first-draw animation.
+  const [drawn, setDrawn] = useState(false);
+  useEffect(() => {
+    const id = requestAnimationFrame(() => setDrawn(true));
+    return () => cancelAnimationFrame(id);
+  }, []);
+
   const data: any[] = persons.map((person) => {
-    return { x: person.name, y: person.age };
+    return { x: person.name, y: drawn ? person.age : 0 };
   });
 
   return (
@@ -21,6 +30,8 @@ export function Nivo() {
         curve="monotoneX"
         margin={{ top: 20, right: 20, bottom: 60, left: 80 }}
         enableSlices="x"
+        animate
+        motionConfig="gentle"
         data={[{ id: "persons", data: data }]}
         xScale={{ type: "point" }}
         yScale={{ type: "linear" }}
