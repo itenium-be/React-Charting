@@ -30,12 +30,12 @@ export function Victory() {
             voronoiDimension="x"
             cursorDimension="x"
             labels={({ datum }: { datum: { x: string; y: number } }) => `${datum.x}: ${datum.y}`}
-            labelComponent={<VictoryTooltip />}
+            labelComponent={<VictoryTooltip constrainToVisibleArea />}
           />
         }
       >
         <VictoryAxis label="name" />
-        <VictoryAxis dependentAxis label="age" axisLabelComponent={<VictoryLabel dy={-48} />} />
+        <VictoryAxis dependentAxis label="age" axisLabelComponent={<VictoryLabel dy={-34} />} />
         <VictoryLine data={data} />
       </VictoryChart>
     </>
