@@ -1,3 +1,4 @@
+import { Comparison } from "../pages/Comparison";
 import { Data } from "../pages/Data";
 import { ECharts } from "../pages/ECharts";
 import { Nivo } from "../pages/Nivo";
@@ -10,7 +11,7 @@ import { Victory } from "../pages/Victory";
 import { Visx } from "../pages/Visx";
 
 
-export type Charts = 'home' | 'data' | 'recharts' | 'visx' | 'nivo' | 'victory' | 'reactvis' | 'reactchartjs2' | 'echarts' | 'observableplot' | 'unovis';
+export type Charts = 'home' | 'data' | 'comparison' | 'recharts' | 'visx' | 'nivo' | 'victory' | 'reactvis' | 'reactchartjs2' | 'echarts' | 'observableplot' | 'unovis';
 
 
 type AppFormFactoryProps = {
@@ -47,6 +48,8 @@ function ComponentFactory({ page }: AppFormFactoryProps) {
     return <ObservablePlot />;
   case 'unovis':
     return <Unovis />;
+  case 'comparison':
+    return <Comparison />;
   case 'home':
     return (
       <>
@@ -55,10 +58,10 @@ function ComponentFactory({ page }: AppFormFactoryProps) {
         <div className="col-6"><div className="chart-card"><Nivo /></div></div>
         <div className="col-6"><div className="chart-card"><Victory /></div></div>
         <div className="col-6"><div className="chart-card"><ReactChartJS2 /></div></div>
-        <div className="col-6"><div className="chart-card"><ReactVis /></div></div>
         <div className="col-6"><div className="chart-card"><ECharts /></div></div>
         <div className="col-6"><div className="chart-card"><ObservablePlot /></div></div>
         <div className="col-6"><div className="chart-card"><Unovis /></div></div>
+        <div className="col-6"><div className="chart-card"><ReactVis /></div></div>
       </>
     )
   case 'data':

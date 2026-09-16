@@ -162,3 +162,65 @@ main > p {
 .library-links a:hover {
   color: #e78200;
 }
+
+.nav-deprecated {
+  opacity: 0.45;
+}
+
+.nav-deprecated:hover {
+  opacity: 0.8;
+}
+
+.comparison-table {
+  font-size: 0.85rem;
+  white-space: nowrap;
+}
+
+.comparison-table td.numeric,
+.comparison-table th.numeric {
+  text-align: right;
+}
+
+.sort-button {
+  border: 0;
+  background: none;
+  padding: 0;
+  font: inherit;
+  font-weight: 600;
+  color: inherit;
+  cursor: pointer;
+}
+
+.sort-button:hover {
+  color: #e78200;
+}
+
+.sort-arrow {
+  margin-left: 0.3rem;
+  font-size: 0.65rem;
+}
+
+.cell-links {
+  margin-left: 0.6rem;
+}
+
+.cell-links a {
+  color: #000;
+  margin-left: 0.5rem;
+}
+
+.cell-links a:hover {
+  color: #e78200;
+}
+
+.engine-value {
+  color: #6c757d;
+}
+
+.lib-deprecated {
+  opacity: 0.5;
+}
+
+.muted {
+  color: #6c757d;
+}

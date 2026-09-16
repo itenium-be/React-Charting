@@ -54,6 +54,9 @@ function Header({setPage}: HeaderProps) {
             <li className="nav-item">
               <button className="btn btn-link nav-link active" onClick={() => setPage('data')}>Data</button>
             </li>
+            <li className="nav-item">
+              <button className="btn btn-link nav-link active" onClick={() => setPage('comparison')}>Comparison</button>
+            </li>
             <li className="nav-item nav-separator" aria-hidden="true" />
             <li className="nav-item">
               <button className="btn btn-link nav-link active" onClick={() => setPage('recharts')}>Recharts</button>
@@ -71,9 +74,6 @@ function Header({setPage}: HeaderProps) {
               <button className="btn btn-link nav-link active" onClick={() => setPage('reactchartjs2')}>React-ChartJS-2</button>
             </li>
             <li className="nav-item">
-              <button className="btn btn-link nav-link active" onClick={() => setPage('reactvis')}>React-Vis</button>
-            </li>
-            <li className="nav-item">
               <button className="btn btn-link nav-link active" onClick={() => setPage('echarts')}>ECharts</button>
             </li>
             <li className="nav-item">
@@ -81,6 +81,9 @@ function Header({setPage}: HeaderProps) {
             </li>
             <li className="nav-item">
               <button className="btn btn-link nav-link active" onClick={() => setPage('unovis')}>Unovis</button>
+            </li>
+            <li className="nav-item nav-deprecated" title="Deprecated - no longer maintained">
+              <button className="btn btn-link nav-link active" onClick={() => setPage('reactvis')}>React-Vis</button>
             </li>
           </ul>
           <ul className="navbar-nav mb-2 mb-lg-0">
