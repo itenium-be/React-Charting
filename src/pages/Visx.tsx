@@ -23,8 +23,8 @@ export function Visx() {
         xScale={{ type: "band" }}
         yScale={{ type: "linear" }}
       >
-        <AnimatedAxis orientation="bottom" />
-        <AnimatedAxis orientation="left" />
+        <AnimatedAxis orientation="bottom" label="name" />
+        <AnimatedAxis orientation="left" label="age" />
         <AnimatedGrid columns={false} numTicks={4} />
         <AnimatedLineSeries dataKey="Line 1" data={persons} {...accessors} />
         <Tooltip<IPerson>

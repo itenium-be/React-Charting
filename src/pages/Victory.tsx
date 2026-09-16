@@ -1,5 +1,5 @@
 import { shallowEqual, useSelector } from "react-redux";
-import { createContainer, VictoryChart, VictoryLine, VictoryTooltip } from "victory";
+import { createContainer, VictoryAxis, VictoryChart, VictoryLine, VictoryTooltip } from "victory";
 import { LibraryInfo } from "../components/LibraryInfo";
 import { byKey } from "../data/libraries";
 
@@ -33,6 +33,8 @@ export function Victory() {
           />
         }
       >
+        <VictoryAxis label="name" />
+        <VictoryAxis dependentAxis label="age" />
         <VictoryLine data={data} />
       </VictoryChart>
     </>

@@ -40,6 +40,14 @@ export const options = {
       text: "Chart.js Line Chart",
     },
   },
+  scales: {
+    x: {
+      title: { display: true, text: "name" },
+    },
+    y: {
+      title: { display: true, text: "age" },
+    },
+  },
 };
 
 export function ReactChartJS2() {
@@ -53,7 +61,7 @@ export function ReactChartJS2() {
     labels,
     datasets: [
       {
-        label: "Dataset 1",
+        label: "age",
         data: ages,
         borderColor: "rgb(255, 99, 132)",
         backgroundColor: "rgba(255, 99, 132, 0.5)",
